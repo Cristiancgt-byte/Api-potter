@@ -83,14 +83,6 @@ function Home() {
       : equipo.contestantName.toLowerCase().includes(busqueda.toLowerCase())
   )
 
-  const estadisticasFiltradas = estadisticas.filter((jugador) =>
-    busqueda.length < 3
-      ? true  // muestra todos
-      : jugador.name.toLowerCase().includes(busqueda.toLowerCase()) ||
-        jugador.contestantName.toLowerCase().includes(busqueda.toLowerCase())
-  )
-
-
 
   return (
     <>
@@ -126,7 +118,7 @@ function Home() {
               </tr>
             </thead>
             <tbody>
-              {ranking.map((equipo) => (
+              {rankingFiltrado.map((equipo) => (
                 <tr key={equipo.rank}
                     className={
                       busqueda.length >= 3 &&

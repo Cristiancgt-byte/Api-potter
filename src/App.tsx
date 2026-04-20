@@ -12,11 +12,11 @@ function App() {
     <>
     <Router>
       <nav className="c-menu">
-        <Link to="/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDy9mBtyJWUPLRobv__N2OwHYdiKAWarKroQ&s" /><p>Home</p></Link>
-        <Link to="/favoritos"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwirKiGL1VFlx1A456XT5nxNyWds8y4-K5zg&s" /><p>Favoritos</p></Link>
-        <Link to="/original"><img src="https://media.istockphoto.com/id/1448912272/vector/soccer-ball-icon-football-game-ball-icons.jpg?s=170667a&w=0&k=20&c=BppyhfxxHRxTSk_1urxYxFTh9a-UprsyYm5vI0XC7Lg=" /><p>Original</p></Link>
-        <Link to="/informativa"><img src="https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/more-info-icon.png" /><p>Informativa</p></Link>
-        <Link to="/usuario"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNzXYh-X4wxX1jfbPywa8HWoNGDnx1Tlo0-g&s" /><p>Usuario</p></Link>   
+        <Link to="/"><img src="" /><p>Home</p></Link>
+        <Link to="/favoritos"><img src="" /><p>Favoritos</p></Link>
+        <Link to="/original"><img src="" /><p>Original</p></Link>
+        <Link to="/informativa"><img src="" /><p>Informativa</p></Link>
+        <Link to="/usuario"><img src="" /><p>Usuario</p></Link>   
       </nav>
 
       <Routes>
