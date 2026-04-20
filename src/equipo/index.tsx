@@ -31,11 +31,20 @@ function Equipo() {
   const { equipo } = useParams<{ equipo: string }>();
 
   const [data, setData] = useState<TeamData | null>(null);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
   if (!equipo) return;
 
-  const fetchData = async () => {
+  // Revisar si ya es favorito
+  const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+
+  if (favorites.includes(equipo)) {
+    setIsFavorite(true);
+  }
+
+
+const fetchData = async () => {
     try {
       const res = await fetch(
         `https://raw.githubusercontent.com/sdtibata/dataliga/main/${equipo}.json`
@@ -47,15 +56,42 @@ function Equipo() {
       console.error("Error cargando datos:", error);
     }
   };
+  
 
   fetchData();
 }, [equipo]);
+
+
+   const toggleFavorite = () => {
+  if (!equipo) return;
+
+  let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+
+  if (favorites.includes(equipo)) {
+      favorites = favorites.filter((fav: string) => fav !== equipo);
+      setIsFavorite(false);
+    } else {
+      favorites.push(equipo);
+      setIsFavorite(true);
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  };
+
+
+
 
   if (!data) return <p>Cargando...</p>;
 
   return (
     <div>
-      <h1>{data.team.name}</h1>
+
+      <h1>{data.team.name}
+
+        <button onClick={toggleFavorite}>
+          {isFavorite ? "❤️" : "🤍"}
+        </button>
+      </h1>
 
       <h2>Información</h2>
       <p><strong>Ciudad:</strong> {data.team.info.city}</p>
